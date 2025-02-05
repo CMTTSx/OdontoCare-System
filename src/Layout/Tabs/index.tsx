@@ -67,8 +67,8 @@ const TabsConfig = {
   '@media (min-width: 2560px) ': {
     ml: '75%',
   },
-  '@media (min-width: 3840px) ': {
-    ml: '85%',
+  '@media (min-width: 3440px) ': {
+    ml: '82%',
   }
 
 }

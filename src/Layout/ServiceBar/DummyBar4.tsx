@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Typography } from '@mui/material';
 
 const BoxConfig = {
@@ -52,6 +51,11 @@ const TypoName = {
     ml: '-85%',
     mt: 1.5,
   },
+  '@media (min-width: 3440px)': {
+    ml: '1%',
+    mt: 1.5,
+    textAlign: 'left',
+  },
 }
 
 const TypoAge = {
@@ -83,6 +87,11 @@ const TypoAge = {
   '@media (min-width: 2560px)': {
     ml: '-85%',
     mt: 0,
+  },
+  '@media (min-width: 3440px)': {
+    ml: '1.1%',
+    mt: 0,
+    textAlign: 'left',
   },
 }
 
@@ -120,6 +129,10 @@ const TypoDateHour = {
     ml: '19.3%',
     mt: -4,
   },
+  '@media (min-width: 3440px)': {
+    ml: '-70%',
+    mt: -4,
+  },
 }
 
 
@@ -149,6 +162,10 @@ const TypoStatus = {
   },
   '@media (min-width: 2560px)': {
     ml: '61.5%',
+    mt: -3,
+  },
+  '@media (min-width: 3440px)': {
+    ml: '72.5%',
     mt: -3,
   },
 }
