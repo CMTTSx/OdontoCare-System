@@ -162,6 +162,11 @@ const TypoAgendado = {
     mt: 3,
     fontSize: 13,
   },
+  '@media (min-width: 3440px) ': {
+    ml: -85,
+    mt: 2.5,
+    fontSize: 13,
+  },
 }
 
 const TypoHour = {
@@ -193,6 +198,11 @@ const TypoHour = {
   },
   '@media (min-width: 1920px) ': {
     ml: -76,
+    mt: -4.3,
+    fontSize: 14,
+  },
+  '@media (min-width: 3440px) ': {
+    ml: -85,
     mt: -4.3,
     fontSize: 14,
   },
@@ -228,6 +238,9 @@ const PopoverConfig = {
   },
   '@media (min-width: 1920px) ': {
     ml: 80,
+  },
+  '@media (min-width: 3440px) ': {
+    ml: 90,
   },
 }
 
