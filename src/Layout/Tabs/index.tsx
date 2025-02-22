@@ -79,7 +79,6 @@ const BoxConfig = {
   mb: 10,
   zIndex: 1,
 
-
   '@media (min-width: 320px) ': {
     ml: '2.4em',
   },
@@ -130,6 +129,7 @@ const ButtonConfig = {
   '@media (min-width: 1440px) ': {
     ml: '37.5%',
   },
+
   '@media (min-width: 2560px) ': {
     ml: '43.5%',
     width: '13%'
@@ -144,6 +144,10 @@ const Tab1Config = {
 
   '@media (min-width: 320px) ': {
     ml: '5%',
+  },
+
+  '@media (min-width: 1920px) ': {
+    ml: '26%',
   },
 
 }

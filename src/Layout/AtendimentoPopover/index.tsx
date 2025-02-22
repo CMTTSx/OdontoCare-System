@@ -32,6 +32,10 @@ const BoxConfig = {
     ml: '95%',
     mt: -3.5,
   },
+  '@media (min-width: 3440px)': {
+    ml: '97%',
+    mt: -3.5,
+  },
 
 }
 

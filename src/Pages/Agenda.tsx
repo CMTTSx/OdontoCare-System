@@ -53,7 +53,8 @@ const ContentConfig = {
 
 const BoardConfig = {
   mt: 3,
-  mb: 1,
+  mb: 2,
+  m:1,
   ml: 'auto',
   mr: 'auto',
   border: 1,
@@ -73,6 +74,10 @@ const BoardConfig = {
   '@media (min-width: 1440px) ': {
     width: '50em',
     height: '40px',
+  },
+  '@media (min-width: 1920px) ': {
+    width: '50em',
+    height: '50px',
   },
 
 }
@@ -158,13 +163,13 @@ const TypoAgendado = {
     fontSize: 12,
   },
   '@media (min-width: 1920px) ': {
-    ml: -76,
+    ml: -87,
     mt: 3,
     fontSize: 13,
   },
   '@media (min-width: 3440px) ': {
     ml: -85,
-    mt: 2.5,
+    mt: 3,
     fontSize: 13,
   },
 }
@@ -197,8 +202,8 @@ const TypoHour = {
     mt: -3.8,
   },
   '@media (min-width: 1920px) ': {
-    ml: -76,
-    mt: -4.3,
+    ml: -87,
+    mt: -4,
     fontSize: 14,
   },
   '@media (min-width: 3440px) ': {
@@ -237,7 +242,7 @@ const PopoverConfig = {
     mt: -6,
   },
   '@media (min-width: 1920px) ': {
-    ml: 80,
+    ml: '91%',
   },
   '@media (min-width: 3440px) ': {
     ml: 90,
