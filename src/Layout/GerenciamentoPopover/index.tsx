@@ -9,7 +9,16 @@ const GerenciamentoPopoverConfig = {
   ml: '50rem',
   mt: -9,
 
+  '@media (min-width: 1440px) ': {
+    ml: '90%',
+  },
+  '@media (min-width: 1920px) ': {
+    ml: '90%',
+  },
   '@media (min-width: 2560px) ': {
+    ml: '90%',
+  },
+  '@media (min-width: 3440px) ': {
     ml: '90%',
   }
 }

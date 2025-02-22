@@ -114,7 +114,7 @@ const PopoverConfig = {
     ml: -52,
   },
   '@media (min-width: 1440px) ': {
-    ml: -25,
+    ml: 20
   },
   '@media (min-width: 3440px) ': {
     ml: 0,
