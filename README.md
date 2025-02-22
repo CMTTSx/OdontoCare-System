@@ -23,6 +23,6 @@ Projeto sistema. versão básica para demonstração de habilidade nas tecnologi
 
 6-NODEJS
 
-Apenas parte de interface gráfica (demo) e algumas funcionalidades estão disponíveis. Parte de backend e api's são protegidas por licenças particular.
+Apenas parte de interface gráfica (demo) e algumas funcionalidades estão disponíveis. Parte de backend e api's são protegidas por licenças particulares.
 
 ![Homepage-OdontoCareSystem](https://user-images.githubusercontent.com/85304089/217532682-d5bbc1d4-9759-4c93-84e1-a8dd31a43c0c.png)
