@@ -150,6 +150,10 @@ const Tab1Config = {
     ml: '26%',
   },
 
+  '@media (min-width: 3440px) ': {
+    ml: '10%',
+  },
+
 }
 
 //Finalizados
