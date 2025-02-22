@@ -34,9 +34,9 @@ export default function Home() {
           <TopBar />
           <Tabs />
         </Grid>
-        
+
       </Grid>
-      
+
     </Box>
   );
 }

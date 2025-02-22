@@ -46,7 +46,7 @@ const style = {
     mt: -10,
     width: '40%',
   },
-  '@media (min-width: 2560px) ': {
+  '@media (min-width: 3440px) ': {
     mt: '-10%',
     ml: -10,
     width: '30%',
@@ -67,8 +67,8 @@ const ButtonConfig = {
   '@media (min-width: 1440px)': {
     ml: '60%',
   },
-  '@media (min-width: 2560px)': {
-    ml: '70%',
+  '@media (min-width: 3440px)': {
+    ml: '76%',
   },
 
 }

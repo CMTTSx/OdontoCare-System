@@ -165,7 +165,7 @@ const TypoStatus = {
     ml: '51.5%',
     mt: -3,
   },
- '@media (min-width: 3440px)': {
+  '@media (min-width: 3440px)': {
     ml: '75%',
     mt: -3,
   },
