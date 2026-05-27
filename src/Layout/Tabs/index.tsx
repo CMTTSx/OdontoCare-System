@@ -87,6 +87,8 @@ export default function BasicTabs() {
         <Box sx={{ width: '100%' }}>
           <ServiceBar />
           <Dummybar />
+          <Dummybar2 />
+          <Dummybar4 />
         </Box>
 
         <Box
@@ -101,15 +103,21 @@ export default function BasicTabs() {
       </TabPanel>
 
       {/* ================= TAB 2 ================= */}
-      <TabPanel value={value} index={1} />
+      <TabPanel value={value} index={1}>
+        <Box sx={{ width: '100%' }}>
+          <Dummybar3 />
+        </Box>
+      </TabPanel>
 
       {/* ================= TAB 3 ================= */}
       <TabPanel value={value} index={2}>
-        <ServiceBar />
-        <Dummybar />
-        <Box mt={1}><Dummybar2 /></Box>
-        <Box mt={1}><Dummybar3 /></Box>
-        <Box mt={1}><Dummybar4 /></Box>
+        <Box sx={{ width: '100%' }}>
+          <ServiceBar />
+          <Dummybar />
+          <Dummybar2 />
+          <Dummybar3 />
+          <Dummybar4 />
+        </Box>
       </TabPanel>
     </Box>
   );

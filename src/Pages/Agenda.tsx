@@ -128,9 +128,10 @@ export default function Agenda() {
     switch (status.toUpperCase()) {
       case 'CANCELADO': return '#f44336';
       case 'CONFIRMADO': return '#4caf50';
+      case 'AGENDADO': return '#5465FF';
       case 'PENDENTE': return '#ff9800';
       case 'REALIZADO': return '#2196f3';
-      default: return '#4caf50';
+      default: return '#5465FF';
     }
   };
 

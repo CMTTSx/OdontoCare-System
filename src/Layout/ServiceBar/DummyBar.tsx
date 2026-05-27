@@ -80,7 +80,7 @@ export default function DummyBar() {
           textAlign: { xs: 'center', md: 'left' },
         }}
       >
-        Aguardando
+        Agendado
       </Typography>
 
       {/* ================= Popover ================= */}
