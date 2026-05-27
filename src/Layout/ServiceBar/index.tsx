@@ -16,83 +16,79 @@ export default function ServiceBar() {
         px: 2,
         py: 1,
 
-
         width: {
-          xs: '100%',   
+          xs: '100%',
           sm: '100%',
           md: '100%',
           lg: '100%',
         },
-          boxSizing: 'border-box',
 
-          display: 'grid',
-          gridTemplateColumns: {
-            xs: '1fr',                 // mobile empilhado
-            md: '2fr 1.5fr 1fr auto',  // desktop compacto
-          },
+        mx: 0,
+        boxSizing: 'border-box',
 
-          alignItems: 'center',
-          gap: {
-            xs: 0.5,
-            md: 1,
-          },
-        }
-      }
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          md: '2fr 1.5fr 1fr auto',
+        },
+        alignItems: 'center',
+        gap: {
+          xs: 0.5,
+          md: 1,
+        },
+      }}
+    >
+      <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+        <Typography
+          fontWeight={600}
+          fontSize={{ xs: 13, sm: 14 }}
+          lineHeight={1.2}
         >
-        {/* ================= Nome + Idade ================= */ }
-        < Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+          Mayara Silva Souza
+        </Typography>
+
+        <Typography
+          fontSize={{ xs: 12, sm: 13 }}
+          lineHeight={1.2}
+        >
+          26 Anos e 7 Meses
+        </Typography>
+      </Box>
+
       <Typography
-        fontWeight={600}
-        fontSize={{ xs: 13, sm: 14 }}
-        lineHeight={1.2}
+        sx={{
+          textAlign: { xs: 'center', md: 'left' },
+          fontSize: { xs: 12, sm: 13 },
+          lineHeight: 1.2,
+        }}
       >
-        Mayara Silva Souza
+        22/12/2022 10:30
       </Typography>
 
       <Typography
-        fontSize={{ xs: 12, sm: 13 }}
-        lineHeight={1.2}
+        sx={{
+          color: '#05F140',
+          fontWeight: 600,
+          fontSize: { xs: 12, sm: 13 },
+          lineHeight: 1.2,
+          minWidth: 110,
+          textAlign: { xs: 'center', md: 'left' },
+        }}
       >
-        26 Anos e 7 Meses
+        Em Atendimento
       </Typography>
+
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: {
+            xs: 'center',
+            md: 'flex-end',
+          },
+        }}
+      >
+        <AtendimentoPopover />
+      </Box>
     </Box>
-
-      {/* ================= Data / Hora ================= */ }
-  <Typography
-    sx={{
-      textAlign: { xs: 'center', md: 'left' },
-      fontSize: { xs: 12, sm: 13 },
-      lineHeight: 1.2,
-    }}
-  >
-    22/12/2022 10:30
-  </Typography>
-
-  {/* ================= Status ================= */ }
-  <Typography
-    sx={{
-      color: '#05F140',
-      fontWeight: 600,
-      fontSize: { xs: 12, sm: 13 },
-      lineHeight: 1.2,
-      textAlign: { xs: 'center', md: 'left' },
-    }}
-  >
-    Em Atendimento
-  </Typography>
-
-  {/* ================= Popover ================= */ }
-  <Box
-    sx={{
-      display: 'flex',
-      justifyContent: {
-        xs: 'center',   // mobile alinhado
-        md: 'flex-end', // desktop à direita
-      },
-    }}
-  >
-    <AtendimentoPopover />
-  </Box>
-    </Box >
   );
 }
