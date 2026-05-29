@@ -48,7 +48,7 @@ export default function AttendanceItem({
         },
         gridTemplateColumns: {
           xs: '1fr',
-          md: '2fr 1.5fr 140px 70px 40px',
+          md: '2fr 0.45fr auto auto 40px',
         },
         '@media (min-width:2560px)': {
           gridTemplateAreas: `
@@ -82,14 +82,20 @@ export default function AttendanceItem({
         sx={{
           gridArea: 'date',
           alignSelf: 'center',
-          justifySelf: 'center',
-          textAlign: 'center',
+          justifySelf: 'end',
+          textAlign: 'right',
           fontSize: { xs: 12, sm: 13 },
           lineHeight: 1.2,
-          display: 'flex',
+          display: 'inline-flex',
           alignItems: 'center',
+          justifyContent: 'center',
           minHeight: 32,
-          width: '100%',
+          width: 'fit-content',
+          minWidth: 'max-content',
+          transform: {
+            xs: 'none',
+            md: 'translateX(-90px)',
+          },
         }}
       >
         {dateTime}
@@ -109,10 +115,10 @@ export default function AttendanceItem({
           '& .MuiChip-label': {
             px: 1.1,
           },
-        '@media (min-width:2560px)': {
-          justifySelf: 'start',
-          mt: 0.5,
-        },
+          '@media (min-width:2560px)': {
+            justifySelf: 'start',
+            mt: 0.5,
+          },
         }}
       />
 
