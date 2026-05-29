@@ -20,6 +20,7 @@ import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
 import BasicLayout from '../Layout/BasicLayout/BasicLayout';
 import Breadcrumbs from '../Layout/Breadcrumbs/Gerenciamento';
+import DemoNotice from '../Layout/DemoNotice';
 import AdicionarPerfilModal from '../Layout/AdicionarPerfilModal';
 import EditarPerfilModal from '../Layout/EditarPerfilGerenciamentoModal';
 import ConfirmarDeleteModal from '../Layout/ConfirmarDeleteModal';
@@ -606,6 +607,7 @@ export default function Gerenciamento() {
   return (
     <BasicLayout>
       <Breadcrumbs />
+      <DemoNotice />
 
       <Box sx={{ mt: 3 }}>
         <Paper sx={{ p: { xs: 2, sm: 5 }, maxWidth: 1000, mx: 'auto' }}>

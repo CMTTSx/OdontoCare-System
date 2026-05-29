@@ -23,6 +23,7 @@ import api from "../services/api";
 
 import BasicLayout from "../Layout/BasicLayout/BasicLayout";
 import Breadcrumbs from "../Layout/Breadcrumbs/Agenda";
+import DemoNotice from "../Layout/DemoNotice";
 import AgendamentoPopover from "../Layout/AgendamentoPopover";
 import AgendarAtendimentoModal from "../Layout/AgendarAtendimentoModal";
 import EditarAgendamentoModal from "../Layout/EditarAgendamentoModal";
@@ -143,6 +144,7 @@ export default function Agenda() {
   return (
     <BasicLayout>
       <Breadcrumbs />
+      <DemoNotice />
 
       <Box sx={{ mt: 2, maxWidth: 900, mx: "auto" }}>
         <Typography

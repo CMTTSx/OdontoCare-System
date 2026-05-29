@@ -9,6 +9,7 @@ import {
 
 import BasicLayout from '../Layout/BasicLayout/BasicLayout';
 import Breadcrumbs from '../Layout/Breadcrumbs/Financeiro';
+import DemoNotice from '../Layout/DemoNotice';
 
 import Boleto from '../../src/assets/Boleto.webp';
 import nfe from '../../src/assets/icon-nfe.png';
@@ -19,6 +20,7 @@ export default function Financeiro() {
     <BasicLayout>
       {/* Breadcrumbs */}
       <Breadcrumbs />
+      <DemoNotice />
 
       <Box sx={{ mt: 2 }}>
         {/* CARD CENTRAL */}

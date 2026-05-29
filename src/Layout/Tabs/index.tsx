@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { Box, Tab, Tabs } from '@mui/material';
+import { Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button, Tab, Tabs, Typography } from '@mui/material';
 
 import AtendimentoModal from '../AdicionarAtendimentoModal';
 import ServiceBar from '../ServiceBar';
-import Dummybar from '../ServiceBar/DummyBar';
-import Dummybar2 from '../ServiceBar/DummyBar2';
-import Dummybar3 from '../ServiceBar/DummyBar3';
-import Dummybar4 from '../ServiceBar/DummyBar4';
+import AttendanceCrudModal from '../ServiceBar/AttendanceCrudModal';
+import { allAttendanceMockups } from '../ServiceBar/mockData';
+import { AttendanceItem } from '../ServiceBar/types';
 
 function TabPanel({
   children,
@@ -28,6 +27,30 @@ function TabPanel({
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
+  const [items, setItems] = React.useState<AttendanceItem[]>(allAttendanceMockups);
+  const [editingItem, setEditingItem] = React.useState<AttendanceItem | null>(null);
+  const [cancelItem, setCancelItem] = React.useState<AttendanceItem | null>(null);
+
+  const activeItems = items.filter((item) => item.status !== 'Finalizado' && item.status !== 'Cancelado');
+  const finishedItems = items.filter((item) => item.status === 'Finalizado');
+  const allItems = items;
+
+  const handleSave = (updated: AttendanceItem) => {
+    setItems((prev) => prev.map((item) => (item.id === updated.id ? updated : item)));
+    setEditingItem(null);
+  };
+
+  const handleConfirmCancel = () => {
+    if (!cancelItem) return;
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === cancelItem.id
+          ? { ...item, status: 'Cancelado', color: '#FF3562', isMockup: false }
+          : item
+      )
+    );
+    setCancelItem(null);
+  };
 
   return (
     <Box
@@ -85,10 +108,15 @@ export default function BasicTabs() {
       {/* ================= TAB 1 ================= */}
       <TabPanel value={value} index={0}>
         <Box sx={{ width: '100%' }}>
-          <ServiceBar />
-          <Dummybar />
-          <Dummybar2 />
-          <Dummybar4 />
+          {activeItems.map((item) => (
+            <ServiceBar
+              key={item.id}
+              {...item}
+              showActions
+              onEdit={() => setEditingItem(item)}
+              onCancel={() => setCancelItem(item)}
+            />
+          ))}
         </Box>
 
         <Box
@@ -105,20 +133,67 @@ export default function BasicTabs() {
       {/* ================= TAB 2 ================= */}
       <TabPanel value={value} index={1}>
         <Box sx={{ width: '100%' }}>
-          <Dummybar3 />
+          {finishedItems.map((item) => (
+            <ServiceBar key={item.id} {...item} />
+          ))}
         </Box>
       </TabPanel>
 
       {/* ================= TAB 3 ================= */}
       <TabPanel value={value} index={2}>
         <Box sx={{ width: '100%' }}>
-          <ServiceBar />
-          <Dummybar />
-          <Dummybar2 />
-          <Dummybar3 />
-          <Dummybar4 />
+          {allItems.map((item) => (
+            <ServiceBar
+              key={item.id}
+              {...item}
+              showActions
+              onEdit={() => setEditingItem(item)}
+              onCancel={() => setCancelItem(item)}
+            />
+          ))}
         </Box>
       </TabPanel>
+
+      <Typography
+        sx={{
+          mt: 2,
+          color: '#dc2626',
+          fontWeight: 700,
+          fontSize: 13,
+          textAlign: 'center',
+        }}
+      >
+        Versão demonstrativa. Os itens marcados como mockup serão substituídos pelo CRUD.
+      </Typography>
+
+      <AttendanceCrudModal
+        open={Boolean(editingItem)}
+        item={editingItem}
+        onClose={() => setEditingItem(null)}
+        onSave={handleSave}
+      />
+
+      <Dialog open={Boolean(cancelItem)} onClose={() => setCancelItem(null)}>
+        <DialogTitle sx={{ fontWeight: 700 }}>Cancelar Atendimento</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Tem certeza que deseja cancelar o atendimento de{' '}
+            <strong>{cancelItem?.name}</strong>?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions sx={{ p: 2 }}>
+          <Button onClick={() => setCancelItem(null)} sx={{ color: '#666' }}>
+            Voltar
+          </Button>
+          <Button
+            variant="contained"
+            onClick={handleConfirmCancel}
+            sx={{ backgroundColor: '#EF4444', '&:hover': { backgroundColor: '#db0b00' } }}
+          >
+            Cancelar Atendimento
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }

@@ -9,6 +9,7 @@ import {
 
 import BasicLayout from '../Layout/BasicLayout/BasicLayout';
 import Breadcrumbs from '../Layout/Breadcrumbs/Suporte';
+import DemoNotice from '../Layout/DemoNotice';
 
 import AdicionarNovoTicketModal from '../Layout/AdicionarNovoTicketModal';
 import VerificarNovoTicketModal from '../Layout/VerificarNovoTicketModal';
@@ -17,6 +18,7 @@ export default function Suporte() {
   return (
     <BasicLayout>
       <Breadcrumbs />
+      <DemoNotice />
 
       <Box sx={{ mt: 3 }}>
         <Paper

@@ -1,14 +1,12 @@
-import AttendanceRow from './AttendanceRow';
+import AttendanceItem from './AttendanceItem';
+import { AttendanceItem as AttendanceItemType } from './types';
 
-export default function ServiceBar() {
-  return (
-    <AttendanceRow
-      name="Mayara Silva Souza"
-      age="26 Anos e 7 Meses"
-      dateTime="22/12/2022 10:30"
-      status="Em Atendimento"
-      color="#05F140"
-      showActions
-    />
-  );
+type ServiceBarProps = AttendanceItemType & {
+  showActions?: boolean;
+  onEdit?: () => void;
+  onCancel?: () => void;
+};
+
+export default function ServiceBar(props: ServiceBarProps) {
+  return <AttendanceItem {...props} />;
 }

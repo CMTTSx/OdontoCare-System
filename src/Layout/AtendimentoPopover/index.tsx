@@ -2,11 +2,26 @@ import * as React from 'react';
 import { Box, Button, IconButton, Popover } from '@mui/material';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
-export default function AgendamentoPopover() {
+type AtendimentoPopoverProps = {
+  onEdit?: () => void;
+  onCancel?: () => void;
+};
+
+export default function AgendamentoPopover({ onEdit, onCancel }: AtendimentoPopoverProps) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
+
+  const handleEdit = () => {
+    onEdit?.();
+    handleClose();
+  };
+
+  const handleCancel = () => {
+    onCancel?.();
+    handleClose();
+  };
 
   const open = Boolean(anchorEl);
   const id = open ? 'agendamento-popover' : undefined;
@@ -32,7 +47,7 @@ export default function AgendamentoPopover() {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            minWidth: { xs: 140, sm: 160, md: 180, lg: 200, xl: 220, '2xl': 250 },
+            minWidth: { xs: 140, sm: 160, md: 180, lg: 200, xl: 220 },
           }}
         >
           <Button
@@ -40,12 +55,12 @@ export default function AgendamentoPopover() {
               fontWeight: 600,
               color: '#000',
               justifyContent: 'flex-start',
-              fontSize: { xs: 12, sm: 13, md: 14, lg: 15, xl: 16, '2xl': 17 },
+              fontSize: { xs: 12, sm: 13, md: 14, lg: 15, xl: 16 },
               px: { xs: 1, sm: 2, md: 3 },
               py: { xs: 0.5, sm: 1 },
               '&:hover': { backgroundColor: '#b9b9b9', color: '#fff' },
             }}
-            onClick={handleClose}
+            onClick={handleEdit}
           >
             Editar Atendimento
           </Button>
@@ -55,12 +70,12 @@ export default function AgendamentoPopover() {
               fontWeight: 600,
               color: '#cf0700',
               justifyContent: 'flex-start',
-              fontSize: { xs: 12, sm: 13, md: 14, lg: 15, xl: 16, '2xl': 17 },
+              fontSize: { xs: 12, sm: 13, md: 14, lg: 15, xl: 16 },
               px: { xs: 1, sm: 2, md: 3 },
               py: { xs: 0.5, sm: 1 },
               '&:hover': { backgroundColor: '#db0b00', color: '#fff' },
             }}
-            onClick={handleClose}
+            onClick={handleCancel}
           >
             Cancelar Atendimento
           </Button>

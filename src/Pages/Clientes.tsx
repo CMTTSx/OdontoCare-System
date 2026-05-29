@@ -13,6 +13,7 @@ import { BsSearch } from 'react-icons/bs';
 
 import BasicLayout from '../Layout/BasicLayout/BasicLayout';
 import Breadcrumbs from '../Layout/Breadcrumbs/Clientes';
+import DemoNotice from '../Layout/DemoNotice';
 
 import AdicionarClienteModal from '../Layout/AdicionarClienteModal';
 import EditarClienteModal from '../Layout/EditarClienteModal';
@@ -99,6 +100,7 @@ export default function Clientes() {
   return (
     <BasicLayout>
       <Breadcrumbs />
+      <DemoNotice />
 
       <Box sx={{ mt: 2 }}>
         {/* CARD BUSCA */}
