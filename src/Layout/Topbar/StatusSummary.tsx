@@ -1,16 +1,29 @@
 import { Box, Typography } from '@mui/material';
-
-const statusItems = [
-  { value: '0', label: 'Atendido', color: '#97ffae' },
-  { value: '1', label: 'Cancelado', color: '#fc1703' },
-  { value: '2', label: 'Falta', color: '#fcf403' },
-];
-
 type StatusSummaryProps = {
+  atendidos: number;
+  cancelados: number;
+  faltas: number;
   sx?: object;
 };
 
-export default function StatusSummary({ sx = {} }: StatusSummaryProps) {
+const statusItems = [
+  { key: 'atendidos', label: 'Atendido', color: '#97ffae' },
+  { key: 'cancelados', label: 'Cancelado', color: '#fc1703' },
+  { key: 'faltas', label: 'Falta', color: '#fcf403' },
+] as const;
+
+export default function StatusSummary({
+  atendidos,
+  cancelados,
+  faltas,
+  sx = {},
+}: StatusSummaryProps) {
+  const values = {
+    atendidos,
+    cancelados,
+    faltas,
+  } satisfies Record<(typeof statusItems)[number]['key'], number>;
+
   return (
     <Box
       sx={{
@@ -60,7 +73,7 @@ export default function StatusSummary({ sx = {} }: StatusSummaryProps) {
           }}
         >
           <Typography sx={{ color: item.color, fontSize: 26, fontWeight: 600 }}>
-            {item.value}
+            {values[item.key]}
           </Typography>
 
           <Typography fontWeight={600} color="#000">

@@ -5,9 +5,12 @@ import Breadcrumbs from '../Layout/Breadcrumbs/Home';
 import DemoNotice from '../Layout/DemoNotice';
 import Tabs from '../Layout/Tabs';
 import TopBar from '../Layout/Topbar';
-import StatusSummary from '../Layout/Topbar/StatusSummary';
+import { allAttendanceMockups } from '../Layout/ServiceBar/mockData';
+import { AttendanceItem } from '../Layout/ServiceBar/types';
 
 export default function Home() {
+  const [items, setItems] = React.useState<AttendanceItem[]>(allAttendanceMockups);
+
   return (
     <BasicLayout>
       {/* Breadcrumbs logo abaixo da Navbar */}
@@ -16,20 +19,8 @@ export default function Home() {
 
       {/* TopBar e Tabs */}
       <Box sx={{ mt: 2 }}>
-        <TopBar hideStatusesOnXl />
-        <Box
-          sx={{
-            display: 'none',
-            '@media (min-width:2560px)': {
-              display: 'flex',
-              mt: 2,
-              px: 10,
-            },
-          }}
-        >
-          <StatusSummary />
-        </Box>
-        <Tabs />
+        <TopBar hideStatusesOnXl items={items} />
+        <Tabs items={items} setItems={setItems} />
       </Box>
 
     </BasicLayout>

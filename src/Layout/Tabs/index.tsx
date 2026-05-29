@@ -4,7 +4,6 @@ import { Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTit
 import AtendimentoModal from '../AdicionarAtendimentoModal';
 import ServiceBar from '../ServiceBar';
 import AttendanceCrudModal from '../ServiceBar/AttendanceCrudModal';
-import { allAttendanceMockups } from '../ServiceBar/mockData';
 import { AttendanceItem, AttendanceStatus } from '../ServiceBar/types';
 
 const getStatusColor = (status: AttendanceStatus) => {
@@ -42,9 +41,13 @@ function TabPanel({
   );
 }
 
-export default function BasicTabs() {
+type BasicTabsProps = {
+  items: AttendanceItem[];
+  setItems: React.Dispatch<React.SetStateAction<AttendanceItem[]>>;
+};
+
+export default function BasicTabs({ items, setItems }: BasicTabsProps) {
   const [value, setValue] = React.useState(0);
-  const [items, setItems] = React.useState<AttendanceItem[]>(allAttendanceMockups);
   const [editingItem, setEditingItem] = React.useState<AttendanceItem | null>(null);
   const [cancelItem, setCancelItem] = React.useState<AttendanceItem | null>(null);
 
@@ -188,13 +191,6 @@ export default function BasicTabs() {
         Versão demonstrativa. Os itens marcados como mockup serão substituídos pelo CRUD.
       </Typography>
 
-      <AttendanceCrudModal
-        open={Boolean(editingItem)}
-        item={editingItem}
-        onClose={() => setEditingItem(null)}
-        onSave={handleSave}
-      />
-
       <Dialog open={Boolean(cancelItem)} onClose={() => setCancelItem(null)}>
         <DialogTitle sx={{ fontWeight: 700 }}>Cancelar Atendimento</DialogTitle>
         <DialogContent>
@@ -216,6 +212,13 @@ export default function BasicTabs() {
           </Button>
         </DialogActions>
       </Dialog>
+
+      <AttendanceCrudModal
+        open={Boolean(editingItem)}
+        item={editingItem}
+        onClose={() => setEditingItem(null)}
+        onSave={handleSave}
+      />
     </Box>
   );
 }
