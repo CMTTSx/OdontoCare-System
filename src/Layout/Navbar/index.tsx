@@ -21,15 +21,13 @@ const BoxConfig = {
 }
 
 const Logo = {
-  backgroundImage: `url(${Logotipo})`,
-  color: "#f5f5f5",
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'contain',
-
-  '@media (min-width: 320px)': {
-    width: '10rem',
-    height: '3rem',
-    },
+  display: 'block',
+  width: '10rem',
+  height: '3rem',
+  objectFit: 'contain',
+  objectPosition: 'left center',
+  flexShrink: 0,
+  alignSelf: 'center',
 }
 
 const TypographyTopBar = {
@@ -94,8 +92,19 @@ export default function Navbar() {
       <Box
         component={RouterLink}
         to="/paginaInicial"
-        sx={Logo}
-      />
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          flexShrink: 0,
+        }}
+      >
+        <Box
+          component="img"
+          src={Logotipo}
+          alt="ODC System"
+          sx={Logo}
+        />
+      </Box>
 
       <Box sx={TypographyTopBar}>
         <Typography sx={{ fontSize: 12 }}>{userName}</Typography>
