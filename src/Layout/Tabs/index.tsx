@@ -5,7 +5,24 @@ import AtendimentoModal from '../AdicionarAtendimentoModal';
 import ServiceBar from '../ServiceBar';
 import AttendanceCrudModal from '../ServiceBar/AttendanceCrudModal';
 import { allAttendanceMockups } from '../ServiceBar/mockData';
-import { AttendanceItem } from '../ServiceBar/types';
+import { AttendanceItem, AttendanceStatus } from '../ServiceBar/types';
+
+const getStatusColor = (status: AttendanceStatus) => {
+  switch (status) {
+    case 'Em Atendimento':
+      return '#05F140';
+    case 'Agendado':
+      return '#5465FF';
+    case 'Faltou':
+      return '#FF9000';
+    case 'Cancelado':
+      return '#FF3562';
+    case 'Finalizado':
+      return '#0F9D58';
+    default:
+      return '#5465FF';
+  }
+};
 
 function TabPanel({
   children,
@@ -45,7 +62,12 @@ export default function BasicTabs() {
     setItems((prev) =>
       prev.map((item) =>
         item.id === cancelItem.id
-          ? { ...item, status: 'Cancelado', color: '#FF3562', isMockup: false }
+          ? {
+              ...item,
+              status: 'Cancelado',
+              color: getStatusColor('Cancelado'),
+              isMockup: false,
+            }
           : item
       )
     );

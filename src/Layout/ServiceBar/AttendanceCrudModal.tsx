@@ -9,6 +9,23 @@ type Props = {
   onSave: (item: AttendanceItem) => void;
 };
 
+const getStatusColor = (status: AttendanceStatus) => {
+  switch (status) {
+    case 'Em Atendimento':
+      return '#05F140';
+    case 'Agendado':
+      return '#5465FF';
+    case 'Faltou':
+      return '#FF9000';
+    case 'Cancelado':
+      return '#FF3562';
+    case 'Finalizado':
+      return '#0F9D58';
+    default:
+      return '#5465FF';
+  }
+};
+
 export default function AttendanceCrudModal({ open, item, onClose, onSave }: Props) {
   const [form, setForm] = React.useState<AttendanceItem | null>(item);
 
@@ -17,6 +34,14 @@ export default function AttendanceCrudModal({ open, item, onClose, onSave }: Pro
   }, [item]);
 
   if (!form) return null;
+
+  const handleSave = () => {
+    onSave({
+      ...form,
+      color: getStatusColor(form.status),
+      isMockup: false,
+    });
+  };
 
   return (
     <Modal open={open} onClose={onClose}>
@@ -74,14 +99,8 @@ export default function AttendanceCrudModal({ open, item, onClose, onSave }: Pro
               <MenuItem key={option} value={option}>
                 {option}
               </MenuItem>
-            ))}
+              ))}
           </TextField>
-          <TextField
-            label="Cor"
-            value={form.color}
-            onChange={(e) => setForm({ ...form, color: e.target.value })}
-            fullWidth
-          />
         </Box>
 
         <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end', gap: 1 }}>
@@ -90,7 +109,7 @@ export default function AttendanceCrudModal({ open, item, onClose, onSave }: Pro
           </Button>
           <Button
             variant="contained"
-            onClick={() => onSave(form)}
+            onClick={handleSave}
             sx={{ backgroundColor: '#0053d9', '&:hover': { backgroundColor: '#0042b3' } }}
           >
             Salvar
