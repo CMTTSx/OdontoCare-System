@@ -59,8 +59,10 @@ export default function Sidebar() {
   const SidebarStyle = {
     display: 'flex',
     flexDirection: 'column',
-    width: '4em',
-    minHeight: '100vh',
+    width: '100%',
+    height: '100%',
+    minHeight: 0,
+    boxSizing: 'border-box',
     overflow: 'hidden',
     boxShadow: 5,
     backgroundColor: '#F1F4FE',

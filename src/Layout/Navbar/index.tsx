@@ -14,16 +14,18 @@ import Logotipo from '../../assets/ODCSYSTEM.png';
 
 const BoxConfig = {
   display: 'flex',
+  alignItems: 'center',
+  width: '100%',
+  height: '100%',
   bgcolor: '#000744',
-  mt: -1,
-  ml: -1,
-  pr: 1,
+  px: { xs: 1, sm: 2 },
+  boxSizing: 'border-box',
 }
 
 const Logo = {
   display: 'block',
-  width: '10rem',
-  height: '3rem',
+  width: { xs: '8rem', sm: '10rem' },
+  height: { xs: '2.5rem', sm: '3rem' },
   objectFit: 'contain',
   objectPosition: 'left center',
   flexShrink: 0,
@@ -35,28 +37,16 @@ const TypographyTopBar = {
   flexDirection: 'column',
   alignItems: 'center',
   color: '#f5f5f5',
-  fontSize: 10,
+  minWidth: 0,
+  ml: 'auto',
+  mr: { xs: 0, sm: 1 },
   p: '0.3rem',
-
-  '@media (min-width: 375px)': {
-    ml: '15%',
-  },
-  '@media (min-width: 425px)': {
-    ml: '25%',
-  },
-  '@media (min-width: 768px)': {
-    ml: '58%',
-  },
-  '@media (min-width: 1024px)': {
-    ml: '66%',
-    mt: '0.45rem'
-  },
-  '@media (min-width: 1440px)': {
-    ml: '75%',
-  },
-  '@media (min-width: 2560px)': {
-    ml: '82%',
-    mt: '0.8rem'
+  textAlign: 'right',
+  '& > *': {
+    maxWidth: { xs: 120, sm: 240, md: 360 },
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
   },
 }
 

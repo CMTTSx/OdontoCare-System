@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Box } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 import Navbar from '../Navbar';
 import Sidebar from '../Sidebar';
 
@@ -11,11 +11,13 @@ interface BasicLayoutProps {
 const NAVBAR_HEIGHT = 64;
 
 // Largura da Sidebar fixa
-const SIDEBAR_WIDTH = 80; // ajuste conforme necessidade
+const SIDEBAR_WIDTH = 64;
 
 export default function BasicLayout({ children }: BasicLayoutProps) {
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#F6F4F4' }}>
+    <>
+      <CssBaseline />
+      <Box sx={{ display: 'flex', minHeight: '100vh', width: '100%', backgroundColor: '#F6F4F4' }}>
 
       {/* Navbar fixa no topo */}
       <Box
@@ -23,7 +25,7 @@ export default function BasicLayout({ children }: BasicLayoutProps) {
           position: 'fixed',
           top: 0,
           left: 0,
-          width: '100%',
+          right: 0,
           height: NAVBAR_HEIGHT,
           zIndex: 1300, // acima da sidebar
         }}
@@ -36,9 +38,9 @@ export default function BasicLayout({ children }: BasicLayoutProps) {
         sx={{
           position: 'fixed',
           top: NAVBAR_HEIGHT,
+          bottom: 0,
           left: 0,
           width: SIDEBAR_WIDTH,
-          height: `calc(100vh - ${NAVBAR_HEIGHT}px)`,
           zIndex: 1200,
         }}
       >
@@ -49,8 +51,9 @@ export default function BasicLayout({ children }: BasicLayoutProps) {
       <Box
         sx={{
           flex: 1,
-          ml: `${SIDEBAR_WIDTH}px`,          // desloca conteúdo para não ficar atrás da sidebar
-          mt: `${NAVBAR_HEIGHT}px`,         // desloca conteúdo para não ficar atrás da navbar
+          minWidth: 0,
+          ml: `${SIDEBAR_WIDTH}px`,
+          mt: `${NAVBAR_HEIGHT}px`,
           px: {
             xs: 1,  // 320
             sm: 2,  // 375
@@ -58,11 +61,13 @@ export default function BasicLayout({ children }: BasicLayoutProps) {
             lg: 4,  // 1440
             xl: 5,  // 2560/3440
           },
-          width: '100%',
+          width: 'auto',
+          boxSizing: 'border-box',
         }}
       >
         {children}
       </Box>
-    </Box>
+      </Box>
+    </>
   );
 }
